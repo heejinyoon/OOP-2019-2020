@@ -43,6 +43,7 @@ Create a branch for your work today:
 cd OOP-2019-2020
 git checkout -b lab3
 ```
+
 You can add your code to the Loops class.
 
 To set colors, you can use the methods:
@@ -63,7 +64,7 @@ In the setup method.
 
 Ok here are some patterns you can generate using loops. I suggest you modify the Loops class and add a *seperate method* to generate each of the patterns so you can keep your code modular. Don't forget to call the methods you write from ```draw()```. Also you can call colorMode, stroke and fill in each method you write as appropriate for the problem you are trying to solve.
 
-
+You could add code so that by pressing the space key, the program advances through these patterns:
 
 ![](https://github.com/skooter500/GP-2018-2019/blob/master/images/p19.png)
 
