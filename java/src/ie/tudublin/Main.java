@@ -3,6 +3,12 @@ package ie.tudublin;
 public class Main
 {
 
+    public void helloArrays()
+	{
+		String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new ArraysExample());
+    }
+
     public void helloProcessing()
 	{
 		String[] a = {"MAIN"};
@@ -31,6 +37,12 @@ public class Main
 	{
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new AirSeaBattle());
+    }
+
+    public void soundMandala()
+    {
+        String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new SoundMandala());
     }
     
     public void dogsCats()
@@ -75,6 +87,10 @@ public class Main
     public static void main(String[] arg)
     {
         Main main = new Main();
+<<<<<<< HEAD
 		main.helloArrays();        
+=======
+		main.soundMandala();        
+>>>>>>> upstream/master
     }
 }
