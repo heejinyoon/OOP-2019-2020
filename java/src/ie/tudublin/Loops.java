@@ -35,7 +35,7 @@ public class Loops extends PApplet
 		
 		float w = width / (float) numCircles;
 		float radius = w / 2.0f;
-		colorMode(HSB);
+		colorMode(HSB); //colour circle -> HSB 
 		float cGap = 255 / (float) (numCircles * numCircles);
 		noStroke();
 
@@ -43,14 +43,14 @@ public class Loops extends PApplet
 		{		
 			for(int i = 0 ; i < numCircles ; i ++)
 			{
-				float x = radius + (i * w);
+				float x = radius + (i * w); 
 				float y = radius + (j * w);
 				float c = (cGap * i * j + offset) % 255; 
 				fill(c, 255, 255);
 				ellipse(x, y, w, w);
 			}
 		}
-		offset += mouseY / 250.0f;
+		offset += mouseY / 250.0f; //magic number 
 	}
 
 	public void loops3()
