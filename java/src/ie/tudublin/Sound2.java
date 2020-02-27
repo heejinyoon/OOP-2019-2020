@@ -8,6 +8,12 @@ public class Sound2 extends PApplet
 	Minim minim;
 	AudioSample as;
 
+	/* You can get the frame size using: 
+	   in.bufferSize()
+	   You can get the actual sample by using:
+	   in.left.get(SAMPLE_INDEX);
+	*/
+
 	int frameSize = 1024;
 
 	float frameToSecond = 44100 / (float) frameSize;
@@ -22,10 +28,12 @@ public class Sound2 extends PApplet
 	{
 		minim = new Minim(this);
 		as = minim.loadSample("heroplanet.mp3", frameSize);
+		//or using the Minim library, we can set the size of the frame using this code microphone input 
+		//in = minim.getLineIn(Minim.MONO, frameSize, sampleRate, 16);
 		colorMode(HSB);
 	}
 
-	int countZeroCrossings()
+	public int countZeroCrossings()
 	{
 		int count = 0;
 
@@ -37,16 +45,6 @@ public class Sound2 extends PApplet
 			}
 		}
 		return count;
-	}
-
-	float lerpedw = 0;
-
-	public void keyPressed()
-	{
-<<<<<<< HEAD
-		as.stop();
-		as.trigger();
-
 	}
 
 	float offs = 0;
@@ -70,14 +68,15 @@ public class Sound2 extends PApplet
 			line(cx, cy, x, y);
 		}
 		offs += 10f;
-=======
+
 		if (key == ' ')
 		{
 			as.stop();
 			as.trigger();
 		}
->>>>>>> lab5solution
 	}
+	
+	float lerpedw = 0;
 	
 	public void draw()
 	{	
