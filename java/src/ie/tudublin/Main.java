@@ -21,7 +21,7 @@ public class Main
         processing.core.PApplet.runSketch( a, new Loops());
     }
 
-    public void helloArrays()
+    public void helloArray()
     {
 		String[] a = {"MAIN"};
         processing.core.PApplet.runSketch( a, new Arrays());
@@ -51,11 +51,6 @@ public class Main
         processing.core.PApplet.runSketch( a, new SoundMandala());
     }
 
-    public void sound1()
-    {
-        String[] a = {"MAIN"};
-        processing.core.PApplet.runSketch( a, new Sound1());
-    }
     
     public void dogsCats()
     {
