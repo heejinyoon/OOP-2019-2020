@@ -22,6 +22,114 @@ Resources
 - Week 12 Assignment Submission - 30%
 - End of Year exam - 50%
 
+# Week 5 - Introduction to digital audio
+- Sound1 & Sound2 examples
+- Take some time to read through this [introduction to digital audio](http://www.jiscdigitalmedia.ac.uk/guide/an-introduction-to-digital-audio) if you are interested in learning more about how digital audio and sound works. It's very interesting.
+
+## Lab 
+### Learning Outcomes
+- Practice writing loops to iterate over arrays
+- Implement the zero-crossings algorithm
+
+Firstly update your forks of the repo to the latest code from this repo.
+
+```
+cd OOP-2019-2020
+git checkout master
+git pull upstream master
+git push
+```
+
+Handle any merge conflicts you get! If you need help with these ask me or one of the other lab helpers.
+
+Create a branch called for your work today:
+
+```
+git checkout -b lab5
+```
+
+Today lets implement a simple pitch detection algorithm called Zero Crossings in order to figure out the musical note that is playing. 
+
+If you compile and run the code, you will see a variation on the  simple audio visualiser we worked on in the class on Monday. This time however, the audio that is being visualised is from a wav file. The wav file is of a tin-whistle playing the scale. To get the wav file to start playing, press a key on the keyboard.
+
+Digital audio, samples the voltage coming from the microphone and stores these voltages as floating point numbers. For CD quality audio, the microphone is sampled 44100 times per second. If you play a note on an instrument like a tin-whistle or a piano and plot the samples on a graph, it would look something like this:
+
+![Sketch](images/p18.png)
+
+You might notice that this looks a little like a plot of the sin function:
+
+![Sketch](images/p19.png)
+
+However real instruments generate "harmonics" and so it will never be a perfect sine wave. These are caused by the physical properties of the instrument. That's why the plot of the music not is not a perfect sine wave.
+
+Different musical notes are caused by the the air vibrating at different frequencies. For example, when we hear the note D the wave will repeat 293 times in a second. When we hear the note A, the wave will repeat 440 times in a second. A single "wave" in the audio is called a "period".
+
+One simple way of figuring out the frequency, and hence that note that is playing (for example for automatic transcription of music)  is to count the number of periods that occur in one second. If you notice the waveforms above, you can tell when the period ends, because the signal is *above 0* for one sample and then dips to *0 or below* in the next sample. Think about this and you will understand it makes sense. By counting the number of times this occurs we can tell how many periods there are and hence figure out the frequency of the note that is playing.
+
+Sometimes we dont have a full second of audio, we only have a short section, but we can still use the zero crossings algorithm and just multiply the result. This segment of audio is called a frame of audio. For example, if we only have 1024 samples and we are sampling at 44100Hz, then we have (1024 / 44100) seconds of audio every frame. 
+
+This works out at .023 of a second. If we counted 41 crossings in this frame we would multiply by (1 / .023) to get a frequency of 1765. The frequency of the note A6 is 1760, so we could conclude that the note was an A. This technique won't work all the time because of the harmonics, but its a good first step. If you take the time to understand all of the above you will know something cool and amazing.
+
+Using the Minim library, we can set the size of the frame using this code microphone input:
+
+```Java
+in = minim.getLineIn(Minim.MONO, FRAME_SIZE, sampleRate, 16);
+```
+
+or this code for a file:
+
+```Java
+as = minim.loadSample("scale.wav", 1024);
+```
+
+You can get the frame size using:
+
+```Java
+in.bufferSize()
+```
+
+You can get the actual sample by using:
+
+```
+in.left.get(SAMPLE_INDEX);
+```
+- Write a method in your program ```public int countZeroCrossings()``` that uses the above two methods to count and return the zero crossings. The algorithm is pretty simple, so I'll let you figure it out for yourself.
+- When you count the zeros, convert this number to a frequency
+- Print out the value using the text command in Processing
+
+When we take a frequency and get the note name for that frequency, this is called "spelling" the frequency. Here is some Java code for the frequencies of the notes in several octaves of the the D Major scale. For musicians in the class, you will know that D Major has 2 sharps. F# and C#, so the frequencies for the notes F and C are those for F# and C#
+
+```Java
+float[] frequencies = {293.66f, 329.63f, 369.99f, 392.00f, 440.00f, 493.88f, 554.37f, 587.33f
+			, 659.25f, 739.99f, 783.99f, 880.00f, 987.77f, 1108.73f, 1174.66f};
+	String[] spellings = {"D,", "E,", "F,", "G,", "A,", "B,", "C", "D", "E", "F", "G", "A", "B","c", "d", "e", "f", "g", "a", "b", "c'", "d'", "e'", "f'", "g'", "a'", "b'", "c''", "d''"};
+```
+-  Write a class called PitchSpeller that has the above 2 arrays as fields. It should have a method ```public String spell(float frequency)``` that takes a frequency as a parameter and returns the spelling which is *closest* to that frequency. Test your solution by adding code to the main method. For example:
+
+```Java
+PitchSpeller ps = new PitchSpeller();
+System.out.println(ps.spell(330));
+System.out.println(ps.spell(420));
+System.out.println(ps.spell(1980));
+```
+
+Should print:
+
+```
+E,
+A,
+b
+```
+
+You can use the ```Math.abs``` method in your solution to get the absolute value of a number.
+
+Now you can use the PitchSpeller class with your zero crossings algorithm to spell the notes calculated by the zero crossings algorithm you wrote and you will have made a simple transcription system.
+
+Here is a video of what your finished program might look like:
+
+[![YouTube](http://img.youtube.com/vi/bfLVzCD2UC0/0.jpg)](https://youtu.be/bfLVzCD2UC0)
+
+
 # Week 4 - Arrays
 - Check out ArraysExample for the program we wrote in the class
 
