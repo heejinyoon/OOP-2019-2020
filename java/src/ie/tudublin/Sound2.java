@@ -2,6 +2,7 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 import ddf.minim.*;
+import ddf.minim.analysis.FFT;
 
 public class Sound2 extends PApplet
 {	
@@ -10,7 +11,11 @@ public class Sound2 extends PApplet
 
 	int frameSize = 1024;
 
-	float frameToSecond = 44100 / (float) frameSize;
+	int sampleRate = 44100;
+
+	FFT fft;
+
+	float frameToSecond = sampleRate / (float) frameSize;
 
 	public void settings()
 	{
@@ -22,6 +27,9 @@ public class Sound2 extends PApplet
 	{
 		minim = new Minim(this);
 		as = minim.loadSample("scale.wav", frameSize);
+		
+		fft = new FFT(frameSize, sampleRate); 
+
 		colorMode(HSB);
 	}
 
@@ -87,7 +95,21 @@ public class Sound2 extends PApplet
 
 		float freq = count * frameToSecond;
 		textSize(22);
-		text(freq, 100, 50);
+		text("Zero crossings frequency: " + freq, 100, 50);
+
+		fft.window(FFT.HAMMING);
+		fft.forward(as.left);
+
+		stroke(255);
+		int highestBin = 0;
+		for(int i = 0 ; i < fft.specSize() ; i ++)
+		{
+			line(i, 0, i, fft.getBand(i) * 100);
+		}
+
+		float freq1 = fft.indexToFreq(highestBin);
+
+		text("FFT Freq: " + freq1, 100, 100);
 
 	}
 }

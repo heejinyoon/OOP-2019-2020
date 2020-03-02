@@ -8,7 +8,13 @@ public class Sound1 extends PApplet
 {	
 	Minim minim;
 	AudioInput ai;
-	AudioSample as;
+
+	FFT fft;
+
+	int frameSize = 1024;
+	int sampleRate = 44100;
+
+
 
 	public void settings()
 	{
@@ -20,11 +26,12 @@ public class Sound1 extends PApplet
 		minim = new Minim(this);
 		ai = minim.getLineIn(Minim.MONO, width, 44100, 16);
 
-		as = minim.loadSample("heroplanet.mp3");
-		//as.trigger();
 		colorMode(HSB);
 		circy = height / 2;
 		lerpedcircley = circy;
+
+		fft = new FFT(frameSize, sampleRate); 
+
 	}
 
 	float offs = 0;
@@ -59,26 +66,34 @@ public class Sound1 extends PApplet
 			, 255
 			, 255
 		);
-		ellipse(400 , cy,w, w);
-		ellipse(600 , cy,lerpedw, lerpedw);
+		//ellipse(400 , cy,w, w);
+		//ellipse(600 , cy,lerpedw, lerpedw);
 
 
-		/*
-		for(int i = 0 ; i < as.bufferSize() ; i ++)
+		
+		for(int i = 0 ; i < ai.bufferSize() ; i ++)
 		{
 			stroke(
-				map(i, 0, as.bufferSize(), 0, 255)
+				map(i, 0, ai.bufferSize(), 0, 255)
 				, 255
 				, 255
 			);
-			line(i, cy, i, cy + as.left.get(i) * cy);
+			line(i, cy, i, cy + ai.left.get(i) * cy);
 		}
-		*/
-
+		
 		circy += random(-20, 20);
 		lerpedcircley = lerp(lerpedcircley, circy, 0.1f);
-		ellipse(100, circy, 50, 50);
-		ellipse(200, lerpedcircley, 50, 50);
+		//ellipse(100, circy, 50, 50);
+		//ellipse(200, lerpedcircley, 50, 50);
+
+		fft.window(FFT.HAMMING);
+		fft.forward(ai.left);
+
+		stroke(255);
+		for(int i = 0 ; i < fft.specSize() ; i ++)
+		{
+			line(i, 0, i, fft.getBand(i) * 100);
+		}
 		
 	}
 }
