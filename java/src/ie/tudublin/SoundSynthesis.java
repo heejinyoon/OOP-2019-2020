@@ -1,3 +1,38 @@
+/*
+FFT
+Strings
+Sound Synthesis - Oscillators - String
+
+Sound Synthesis:
+Minim is instantiated for sound libraries
+wave - waveform
+
+higher frequency = faster oscillation = higher pitch
+
+Oscill wave - generates sequence of numbers at different frequencies and sends it to the microphone
+
+Triangle wave : Oscil( 440, 0.5f, Waves.TRIANGLE )
+Square wave : Oscil( 440, 0.5f, Waves.SQUARE )
+
+440 is the music note (A)
+0.5f is the amplitude 
+3rd param - type of sound
+
+Tambra of a music note - waveform of a note
+
+frequency doubles every octave
+
+random function - every number has an equal chance of being chosen
+perlin noise (looks like a sine wave, changing amplitude)
+	noise(x);
+the function is normally distributed
+	wave.setFrequency( 
+		map( noise(offset), 0, 1, 200, 600)
+	);
+	offset += 0.01f;
+
+*/
+
 package ie.tudublin;
 
 import ddf.minim.AudioOutput;
