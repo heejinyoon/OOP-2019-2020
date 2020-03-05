@@ -1,7 +1,7 @@
 # Object Oriented Programming Assignments
 ## Assignment
 
-Fork [this starter project]()
+Fork [this starter project](https://github.com/skooter500/MusicVisuals)
 
 "Something beautiful to enjoy while listening to music."
 

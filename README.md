@@ -1,4 +1,4 @@
-# DT228/DT282 Object Oriented Programming 2018-2019
+# DT228/DT282 Object Oriented Programming 2019-2020
 
 Resources
 ---------
@@ -21,6 +21,19 @@ Resources
 - Week 11 Lab Test 20% 
 - Week 12 Assignment Submission - 30%
 - End of Year exam - 50%
+
+# Week 6 - FFT
+- Check out Sound2 example
+
+## Lab
+Fork [this repository](https://github.com/skooter500/MusicVisuals). It has the starter code for your assignment. 
+
+- Create a new package named your student number and put all your code in this package.
+- You should start by creating a subclass of ie.tudublin.Visual
+- Check out the example visualiser called MyVisual in the example package
+- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
+- Study the files Visual.java, MyVisual.java, WaveForm.java and AudioBandsVisual.java to see how it all works
+- Get working on your assignment!
 
 # Week 5 - Introduction to digital audio
 - Sound1 & Sound2 examples
