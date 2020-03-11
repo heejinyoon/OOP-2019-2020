@@ -40,7 +40,7 @@ public class StarMap extends PApplet
 
     public void settings()
     {
-        size(800, 800);
+        size(500, 500);
 
     }
 

@@ -22,6 +22,32 @@ Resources
 - Week 12 Assignment Submission - 30%
 - End of Year exam - 50%
 
+# Week 7 - Loading and visualising a dataset
+- Check out the StarMap example we worked on in the class. It's the solution to [this lab test](https://github.com/skooter500/OOP-LabTest1-2016) from 2016.
+- [loadTable](https://processing.org/reference/loadTable_.html)
+
+## Lab
+### Learning Outcomes
+- Know how to use encapsulation
+- Know how to make getters and setters and use them
+- Know how to use an ArrayList
+- Know how to interact with the mouse
+- Develop computational thinking and logic skills
+
+### Part 1
+
+Update your forks of the repo to get the code we wrote on Monday
+
+Complete the lab test solution by adding the ability to click on two stars and display the distance between the stars, just like in this video:
+
+[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://youtu.be/J2kHSSFA4NU)
+
+Here is the [original lab test](https://github.com/skooter500/OOP-LabTest1-2016)
+
+### Lab 2
+
+Try this [lab test from last year](https://github.com/skooter500/OOP-Test-2019-Starter)
+
 # Week 6 - FFT
 - Check out Sound2 example
 
