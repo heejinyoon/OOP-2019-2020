@@ -2,16 +2,22 @@ package ie.tudublin;
 
 import processing.core.PApplet;
 import processing.data.TableRow;
-
+/* Create a class called Star to encapsulate the columns of interest from a single row from the file. The columns 
+of interest are given in the table above. Feel free to add additional fields if you need them later 
+*/
 public class Star
-{
+{   
+    /* Habitability flag 1 = star has a high probability of hosting a human habitable planet
+    */
     private boolean hab;
-    private String displayName;
-    private float distance;
+    private String displayName; //The name of the star 
+    private float distance; //Distance from the sun in parsecs
+    /* xyz galactic cartesian co-ordinates in parsecs (used to draw the star map)
+    */
     private float xG;
     private float yG;
     private float zG;
-    private float absMag;
+    private float absMag; //star's size 
     
     public void setHab(boolean hab)
     {
@@ -100,7 +106,10 @@ public class Star
     {
         this("", false, 0, 0, 0, 0, 0);
     }
-
+    /* Write a constructor that takes a TableRow as a parameter and assigns the fields 
+    in the class from the appropriate columns in the TableRow. 
+    A tableRow object represents a single row of data values, stored in columns from a table
+    */
     public Star(TableRow tr)
     {
         this(
@@ -114,6 +123,12 @@ public class Star
         );
     }
 
+    /* Write code to plot the stars onto the grid. For each star you should:
+    - Use the star's Xg and Yg values. Ignore the Zg value when drawing the star
+    - Draw a yellow cross at the star position on the grid 
+    - Draw a red circle with a dimeter of the star's size 
+    - Print the star name beside the star. The text should be left aligned horizontally and centred vertically 
+    */
     public void render(PApplet pa)
     {
         float border = pa.width * 0.05f;
@@ -129,7 +144,4 @@ public class Star
         pa.fill(255);
         pa.text(displayName, x + 50, y);
     }
-
-
-    
 }
