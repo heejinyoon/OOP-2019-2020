@@ -73,6 +73,20 @@ public class Main
         processing.core.PApplet.runSketch( a, new SoundMandala());
     }
 
+<<<<<<< HEAD
+=======
+    public void threeD()
+    {
+        String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new ThreeD());
+    }
+
+    public void cafe()
+    {
+        String[] a = {"MAIN"};
+        processing.core.PApplet.runSketch( a, new Cafe());
+    }
+>>>>>>> 0017d28d50ccce2816eb12a9c15f44a68cc38fe6
     
     public void dogsCats()
     {
@@ -116,6 +130,6 @@ public class Main
     public static void main(String[] arg)
     {
         Main main = new Main();
-		main.starMap();        
+		main.cafe();        
     }
 }

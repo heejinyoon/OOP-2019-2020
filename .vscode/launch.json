@@ -1,75 +1,11 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
     "configurations": [
         {
             "type": "java",
-            "name": "Debug (Launch) - Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-Main<java>",
+            "name": "CodeLens (Launch) - Main",
             "request": "launch",
             "mainClass": "ie.tudublin.Main",
             "projectName": "java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-jlc<java>",
-            "request": "launch",
-            "mainClass": "javazoom.jl.converter.jlc",
-            "projectName": "java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-jlap<java>",
-            "request": "launch",
-            "mainClass": "javazoom.jl.player.advanced.jlap",
-            "projectName": "java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-jlp<java>",
-            "request": "launch",
-            "mainClass": "javazoom.jl.player.jlp",
-            "projectName": "java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-IcyInputStream<java>",
-            "request": "launch",
-            "mainClass": "javazoom.spi.mpeg.sampled.file.tag.IcyInputStream",
-            "projectName": "java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-OSInfo<java>",
-            "request": "launch",
-            "mainClass": "org.sqlite.util.OSInfo",
-            "projectName": "java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-PApplet<java>",
-            "request": "launch",
-            "mainClass": "processing.core.PApplet",
-            "projectName": "java"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-Main",
-            "request": "launch",
-            "mainClass": "ie.dit.Main"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)-Main(1)",
-            "request": "launch",
-            "mainClass": "ie.tudublin.Main"
         }
     ]
 }
